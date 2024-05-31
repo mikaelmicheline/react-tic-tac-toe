@@ -1,0 +1,17 @@
+.gameStatus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.win {
+  font-weight: 500;
+  color: rgb(220, 220, 75);
+}
+
+.draw {
+  font-weight: 500;
+  color: rgb(194, 106, 62);
+}

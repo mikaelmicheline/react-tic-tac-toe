@@ -1,10 +1,16 @@
-.gameBoardButtonUnpressed {
-  background-color: inherit;
-  border: 3px solid rgb(8, 53, 69);
+.gameBoardButton {
   height: 80px;
-  cursor: pointer;
-  transition: all 0.4s ease-in-out;
+  background-color: inherit;
+  color: rgb(220, 220, 75);
+  cursor: pointer;  
   border-radius: 6px;
+  font-weight: 600;
+  font-size: 2rem;
+  transition: all 0.4s ease-in-out;  
+}
+
+.gameBoardButtonUnpressed {
+  border: 3px solid rgb(8, 53, 69);  
 }
 
 .gameBoardButtonUnpressed:hover {
@@ -13,12 +19,18 @@
 }
 
 .gameBoardButtonPressed {
-  background-color: inherit;
-  color: rgb(220, 220, 75);
   border: 3px solid rgb(220, 220, 75);  
-  height: 80px; 
-  cursor: pointer;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 2rem;
+  transform: scale(0.92);
+}
+
+.gameBoardButtonGameOver {
+  color: rgb(8, 53, 69);    
+  border: 3px solid rgb(8, 53, 69);  
+  transform: scale(0.92);
+}
+
+.gameBoardButtonGameOverHighlight {
+  color: rgb(220, 220, 75);    
+  border: 3px solid rgb(220, 220, 75);     
+  transform: scale(0.92);
 }

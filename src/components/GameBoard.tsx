@@ -1,30 +1,28 @@
-import { useState } from "react"
 import styles from "./GameBoard.module.css"
 import GameBoardButton from "./GameBoardButton"
 
-export default function GameBoard() {
-    const [gameBoard, setGameBoard] = useState<(string | null)[]>([null, null, null, null, null, null, null, null, null])
+type GameBoardProps = {
+  gameStatus: 'active' | 'over';
+  gameBoard: ('X' | 'O' | null)[];
+  buttonsToHighlight: number[];
+  onButtonClick: (index: number) => void;
+}
 
-    function handleClickButton(index: number) {
-      setGameBoard((previousGameBoard)=> {
-        const newGameBoard = [...previousGameBoard]
-        newGameBoard[index] = 'A'
-        return newGameBoard
-      })
-    }
-
+export default function GameBoard({ gameStatus, gameBoard, buttonsToHighlight, onButtonClick }: GameBoardProps) {   
     return (
       <section>
         <div className={styles.gameBoard}>          
-          <GameBoardButton index={0} value={gameBoard[0]} handleClickButton={handleClickButton} />
-          <GameBoardButton index={1} value={gameBoard[1]} handleClickButton={handleClickButton} />
-          <GameBoardButton index={2} value={gameBoard[2]} handleClickButton={handleClickButton} />
-          <GameBoardButton index={3} value={gameBoard[3]} handleClickButton={handleClickButton} />
-          <GameBoardButton index={4} value={gameBoard[4]} handleClickButton={handleClickButton} />
-          <GameBoardButton index={5} value={gameBoard[5]} handleClickButton={handleClickButton} />
-          <GameBoardButton index={6} value={gameBoard[6]} handleClickButton={handleClickButton} />
-          <GameBoardButton index={7} value={gameBoard[7]} handleClickButton={handleClickButton} />
-          <GameBoardButton index={8} value={gameBoard[8]} handleClickButton={handleClickButton} />
+          {             
+            [...Array(9).keys()].map((index) => (              
+              <GameBoardButton
+                key={index} 
+                gameStatus={ gameStatus } 
+                index={ index } 
+                value={ gameBoard[index] } 
+                highlight={buttonsToHighlight.some(hl => hl === index)} 
+                onClick={ (index) => onButtonClick(index) } />
+            )) 
+          }         
         </div>
       </section>
     )

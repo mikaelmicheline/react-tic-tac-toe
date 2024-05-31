@@ -1,3 +1,13 @@
+.player {
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+}
+
+.activePlayer {
+  border: 2px solid rgb(220, 220, 75);
+}
+
 .playerSymbol {
   margin-left: 20px;
   font-weight: 500;
